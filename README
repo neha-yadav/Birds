@@ -1,0 +1,35 @@
+##
+
+1)Run the sql query for the creating the required DB-
+
+ CREATE TABLE `birds` (                                    
+          `id` int(11) NOT NULL AUTO_INCREMENT,                   
+          `name` varchar(200) NOT NULL,                           
+          `family` varchar(200) NOT NULL,                         
+          `visible` tinyint(1) DEFAULT '0',                       
+          `continents` varchar(1000) NOT NULL,                    
+          `addedOn` date DEFAULT NULL,                            
+          PRIMARY KEY (`id`),                                     
+          UNIQUE KEY `name` (`name`,`family`)                     
+        ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1  ;
+
+2)make the following enteries in application.properties file-
+
+application.dbURL=URL of the DB server
+application.userName=user name of DB server
+application.password=password of DB server
+
+3)Run the application by running the file "BirdsApplication.java" as java application.
+4)API's implemented-
+
+a)/birds -POST request
+inserts data into birds DB.
+
+b)/birds -GET request
+displays all birds data whose visible=true
+
+c)/birds/{id} -GET request
+displays all data of particular bird whose visible =false
+
+d)/DELETE/birds/{id}  -GET request
+deletes the particular bird data
